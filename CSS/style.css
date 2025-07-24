@@ -76,8 +76,7 @@ body.dark-mode #todo-input,
 body.dark-mode input[type="date"],
 body.dark-mode #status-select,
 body.dark-mode #filter-status-select,
-body.dark-mode #sort-select,
-body.dark-mode .progress-container{
+body.dark-mode #sort-select {
     background: hsl(231, 14%, 74%) !important;
     color: #740314 !important;
     border-color: #B86B77 !important;
@@ -85,9 +84,13 @@ body.dark-mode .progress-container{
     box-shadow: 0 4px 15px rgba(34, 53, 137, 0.416);
 }
 
+body.dark-mode .progress-container {
+    background: transparent !important;
+    border: 1.5px solid #B86B77 !important;
+}
+
 body.dark-mode th{
-    background: #141a36 
-    !important;
+    background: #141a36 !important;
     color: #F7F0EF !important;
     border-color: #B86B77 !important;
 }
@@ -95,22 +98,24 @@ body.dark-mode th{
 body.dark-mode h1,
 body.dark-mode .dashboard-label,
 body.dark-mode .dashboard-value,
-body.dark-mode .progress-bar{
+body.dark-mode .progress-bar {
     color: #F7F0EF !important;
     text-shadow: 2px 2px 8px #05000C;
 }
 
-body.dark-mode button,
+body.dark-mode button:not(#dark-mode-toggle),
+body.dark-mode button:not(#dark-mode-toggle):hover,
+body.dark-mode button:not(#dark-mode-toggle):focus,
 body.dark-mode .delete-all-button,
 body.dark-mode #search-button,
 body.dark-mode #reset-filter-sort {
-    background: #ae9094 !important;
-    color: #F7F0EF !important;
+    background: #ae9094;
+    color: #F7F0EF;
     border: none;
 }
 
-body.dark-mode button:hover,
-body.dark-mode button:focus,
+body.dark-mode button:not(#dark-mode-toggle):hover,
+body.dark-mode button:not(#dark-mode-toggle):focus,
 body.dark-mode .delete-all-button:hover,
 body.dark-mode .delete-all-button:focus,
 body.dark-mode #search-button:hover,
@@ -122,12 +127,47 @@ body.dark-mode #reset-filter-sort:focus {
     transform: translateY(-2px);
 }
 
-body.dark-mode #dark-mode-toggle {
-    background: #09143C !important;
-    color: #F4C8C8 !important;
+#dark-mode-toggle {
+    background: #5666ab;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 22px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(11,25,87,0.08);
+    transition: background 0.3s, color 0.3s, transform 0.2s;
 }
-body.dark-mode #dark-mode-icon {
-    color: #F4C8C8 !important;
+
+#dark-mode-toggle:hover, #dark-mode-toggle:focus {
+    background: #0B1957;
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    outline: none;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background: rgb(255, 255, 255) !important;
+    color: #851244 !important;
+}
+
+body.dark-mode #dark-mode-toggle:hover, 
+body.dark-mode #dark-mode-toggle:focus {
+    background: #851244 !important;
+    color: #fff !important;
+    transform: translateY(-2px) scale(1.03);
+    outline: none;
+}
+
+#dark-mode-icon {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
 }
 
 body.dark-mode #reset-filter-sort:disabled,
@@ -147,6 +187,11 @@ body.dark-mode .delete-all-button:disabled:focus {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+}
+
+body.dark-mode.progress-container {
+    background: transparent !important;
+    border: 1.5px solid #B86B77 !important;
 }
 
 body.dark-mode #progress {
@@ -182,6 +227,7 @@ body, .container, .dashboard, .search-section, .new-task-section,
 input, select, button, table, th, td {
     transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+
 h1 {
     text-align: center;
     color: #0B1957;
@@ -675,4 +721,3 @@ input[type="checkbox"]:checked::after {
 #todo-list td:first-child {
     text-align: center;
 }
-
