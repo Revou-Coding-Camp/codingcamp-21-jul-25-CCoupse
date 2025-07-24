@@ -378,23 +378,30 @@ function showMessage(message) {
 }
 
 document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+    const isDark = !document.body.classList.contains('dark-mode');
     document.body.classList.toggle('dark-mode');
-    if(document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        this.textContent = '☀️ Light Mode';
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
-        this.textContent = '🌙 Dark Mode';
-    }
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    updateDarkModeButton(isDark);
+    this.blur(); 
 });
 
 window.addEventListener('DOMContentLoaded', function() {
     const darkMode = localStorage.getItem('darkMode');
-    const toggleBtn = document.getElementById('dark-mode-toggle');
-    if(darkMode === 'enabled') {
-        document.body.classList.add('dark-mode');
-        if(toggleBtn) toggleBtn.textContent = '☀️ Light Mode';
-    }
+    const isDark = darkMode === 'enabled';
+    if(isDark) document.body.classList.add('dark-mode');
+    updateDarkModeButton(isDark);
 });
+
+function updateDarkModeButton(isDark) {
+    const iconSpan = document.getElementById('dark-mode-icon');
+    const labelSpan = document.getElementById('dark-mode-label');
+    if (isDark) {
+        iconSpan.innerHTML = '☀️';
+        labelSpan.textContent = 'Light Mode';
+    } else {
+        iconSpan.innerHTML = '🌙';
+        labelSpan.textContent = 'Dark Mode';
+    }
+}
 
 updateAllMetrics();
