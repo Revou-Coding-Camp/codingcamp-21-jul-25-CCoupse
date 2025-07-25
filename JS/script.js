@@ -111,10 +111,12 @@ function updateDashboard() {
     const totalTasks = tasks.length;
     const completedTasks = tasks.filter(tr => tr.querySelector('.status-display').textContent.toLowerCase() === 'completed').length;
     const inProgressTasks = tasks.filter(tr => tr.querySelector('.status-display').textContent.toLowerCase() === 'in progress').length;
+    const notStarted = tasks.filter(tr => tr.querySelector('.status-display').textContent.toLowerCase() === 'not started').length;
 
     document.getElementById('total-tasks').textContent = totalTasks;
     document.getElementById('completed-tasks').textContent = completedTasks;
     document.getElementById('in-progress-tasks').textContent = inProgressTasks;
+    document.getElementById('not-started-tasks').textContent = notStarted;
 }
 
 function completeTask(button) {
