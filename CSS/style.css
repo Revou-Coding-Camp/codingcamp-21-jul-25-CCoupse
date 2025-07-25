@@ -407,7 +407,7 @@ form {
 #todo-input {
     padding: 12px;
     border: 2px solid #D2B3DB;
-    border-radius: 8px;
+    border-radius: 12px;
     width: 100%;
     max-width: 600px;
     font-size: 14px;
@@ -434,7 +434,7 @@ form {
 input[type="date"], #status-select {
     padding: 10px;
     border: 2px solid #D2B3DB;
-    border-radius: 8px;
+    border-radius: 12px;
     flex: 1;
     min-width: 120px;
     max-width: 600px;
@@ -460,7 +460,7 @@ button {
     background-color: #426BC2;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
@@ -489,7 +489,7 @@ button:hover, button:focus {
 #filter-status-select, #sort-select {
     padding: 10px;
     border: 2px solid #D2B3DB;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 14px;
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
